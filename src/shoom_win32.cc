@@ -5,7 +5,7 @@
 
 namespace shoom {
 
-Shm::Shm(std::string path, size_t size) : path_(path), size_(size){};
+Shm::Shm(std::string path, size_t size) : path_(path), size_(size) {}
 
 ShoomError Shm::CreateOrOpen(bool create) {
   if (create) {
