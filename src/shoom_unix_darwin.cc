@@ -64,7 +64,7 @@ ShoomError Shm::CreateOrOpen(bool create) {
     return kErrorMappingFailed;
   }
 
-  data_ = static_cast<uint8_t *>(memory);
+  data_ = (void*)(memory);
 
   if (!data_) {
     return kErrorMappingFailed;

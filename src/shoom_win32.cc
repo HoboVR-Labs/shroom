@@ -34,7 +34,7 @@ ShoomError Shm::CreateOrOpen(bool create) {
 
   DWORD access = create ? FILE_MAP_ALL_ACCESS : FILE_MAP_READ;
 
-  data_ = static_cast<uint8_t*>(MapViewOfFile(handle_, access, 0, 0, size_));
+  data_ = (void*)(MapViewOfFile(handle_, access, 0, 0, size_));
 
   if (!data_) {
     return kErrorMappingFailed;

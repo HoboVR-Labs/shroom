@@ -32,7 +32,7 @@ class Shm {
 
   inline size_t Size() { return size_; };
   inline const std::string& Path() { return path_; }
-  inline uint8_t* Data() { return data_; }
+  inline void* Data() { return data_; }
 
   ~Shm();
 
@@ -40,7 +40,7 @@ class Shm {
   ShoomError CreateOrOpen(bool create);
 
   std::string path_;
-  uint8_t* data_ = nullptr;
+  void* data_ = nullptr;
   size_t size_ = 0;
 #if defined(_WIN32)
   HANDLE handle_;
