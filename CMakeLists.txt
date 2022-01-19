@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(shoom)
 
-option(SHOOM_BUILD_TESTS "Build tests for shoom" ON)
+option(SHOOM_BUILD_TESTS "Build tests for shoom" OFF)
 
 include_directories("include")
 
@@ -29,7 +29,7 @@ add_library(shoom STATIC ${SOURCES})
 if (${CMAKE_GENERATOR} MATCHES "Visual")
     target_compile_options(shoom PRIVATE -W3 -EHsc)
 else()
-    target_compile_options(shoom PRIVATE -Wall -Wno-missing-braces -std=c++11 -fPIC)
+    target_compile_options(shoom PRIVATE -Wall -Wno-missing-braces -fPIC)
 endif()
 
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
